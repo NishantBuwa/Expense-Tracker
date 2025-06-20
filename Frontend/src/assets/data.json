@@ -1,0 +1,74 @@
+[
+  {
+    "date": "02-03-2025",
+    "income": 22000,
+    "name": "Fever",
+    "category": "Food",
+    "amount": 1200,
+    "ptype": "Cash"
+  },
+  {
+    "date": "10-01-2025",
+    "income": 25000,
+    "name": "Bus Ticket",
+    "category": "Travel",
+    "amount": 500,
+    "ptype": "Card"
+  },
+  {
+    "date": "12-04-2025",
+    "income": 30000,
+    "name": "Groceries",
+    "category": "Food",
+    "amount": 2000,
+    "ptype": "UPI"
+  },
+  {
+    "date": "15-05-2025",
+    "income": 18000,
+    "name": "Medicine",
+    "category": "Health",
+    "amount": 900,
+    "ptype": "Cash"
+  },
+  {
+    "date": "20-03-2025",
+    "income": 22000,
+    "name": "Stationery",
+    "category": "Education",
+    "amount": 1200,
+    "ptype": "Card"
+  },
+  {
+    "date": "22-02-2025",
+    "income": 35000,
+    "name": "Movie Tickets",
+    "category": "Miscellaneous",
+    "amount": 750,
+    "ptype": "UPI"
+  },
+  {
+    "date": "25-01-2025",
+    "income": 24000,
+    "name": "Restaurant",
+    "category": "Food",
+    "amount": 1800,
+    "ptype": "Cash"
+  },
+  {
+    "date": "28-02-2025",
+    "income": 35000,
+    "name": "Tuition Fee",
+    "category": "Education",
+    "amount": 4000,
+    "ptype": "Card"
+  },
+  {
+    "date": "30-03-2025",
+    "income": 22000,
+    "name": "Petrol",
+    "category": "Travel",
+    "amount": 1500,
+    "ptype": "UPI"
+  }
+]

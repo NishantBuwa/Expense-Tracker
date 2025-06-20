@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Cinzel-black';
+  src: url('./assets/Cinzel-Black.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cinzel-bold';
+  src: url('./assets/Cinzel-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

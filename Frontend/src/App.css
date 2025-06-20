@@ -1,0 +1,15 @@
+.recharts-pie-sector:focus,
+.recharts-pie-sector:active {
+  outline: none !important;
+  stroke: none !important; /* In case it's a stroke, not an outline */
+  /* You might also want to prevent any fill changes on focus if that's happening */
+  /* fill-opacity: 1 !important; */
+}
+
+/* Target general SVG elements within Recharts wrapper */
+.recharts-wrapper svg * {
+  outline: none !important;
+  /* Also check for stroke on hover/focus */
+  /* stroke: none !important; */
+}
+
