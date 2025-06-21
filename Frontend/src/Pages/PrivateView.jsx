@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import logo from '../assets/logo.png'
 import Card from '../components/Card'
 import Table from '../components/Table'
@@ -32,7 +32,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
     });
     const [selectedMonthYear, setSelectedMonthYear] = useState(defaultMonthYear)
 
-    const GetExpense = async () => {
+    const GetExpense = useCallback(async () => {
         try {
             const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/getexpense`, {
                 method: 'POST',
@@ -62,7 +62,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
         } catch (err) {
             console.error("Error fetching user data", err);
         }
-    };
+    },[userInfo.email])
 
 
     useEffect(() => {
