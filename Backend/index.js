@@ -8,6 +8,10 @@ const mongoose = require('mongoose')
 // CONFIG DOTENV FILE
 dotenv.config()
 
+// PARSING TO JSON  
+app.use(cors())
+app.use(express.json());
+
 // DB CONNECTION USING ASYNC/AWAIT
 const connectDB = async () => {
     try {
@@ -24,9 +28,6 @@ const connectDB = async () => {
 
 connectDB()
 
-// PARSING TO JSON
-app.use(cors())
-app.use(express.json());
 
 
 app.get('/', (req, res) => {

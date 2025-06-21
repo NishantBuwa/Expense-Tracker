@@ -34,7 +34,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
 
     const GetExpense = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/getexpense`, {
+            const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/getexpense`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -172,7 +172,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                 email: userInfo.email
             }
             try {
-                const res = await fetch(`http://localhost:5000/api/checksalary`, {
+                const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/checksalary`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -210,7 +210,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
         }
 
         try {
-            const res = await fetch('http://localhost:5000/api/AddExpense', {
+            const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/AddExpense`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
