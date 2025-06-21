@@ -79,7 +79,7 @@ const BarCharts = ({ expenseData }) => {
               />
               <YAxis />
               <Tooltip cursor={{ fill: 'transparent' }} />
-              <Bar dataKey="amount" fill="#8884d8" name="Expense (₹)" activeBar={{ fillOpacity: 1 }} />
+              <Bar dataKey="amount" fill="#2ef1f8" name="Expense (₹)" activeBar={{ fillOpacity: 1 }} />
               <Legend layout="horizontal" wrapperStyle={{ paddingTop: 20, textAlign:'center' }} />
             </BarChart>
           </ResponsiveContainer>
@@ -105,9 +105,9 @@ const BarCharts = ({ expenseData }) => {
               <YAxis />
               <Tooltip cursor={{ fill: 'transparent' }} />
               <Legend layout="horizontal" wrapperStyle={{ paddingTop: 20 }} />
-              <Bar dataKey="UPI" stackId="a" fill="#00C49F" />
-              <Bar dataKey="Cash" stackId="a" fill="#FFBB28" />
-              <Bar dataKey="Card" stackId="a" fill="#8884d8" />
+              <Bar dataKey="UPI" stackId="a" fill="#33cc33" />
+              <Bar dataKey="Cash" stackId="a" fill="#facc15" />
+              <Bar dataKey="Card" stackId="a" fill="#cc99ff" />
             </BarChart>
           </ResponsiveContainer>
         </div>
