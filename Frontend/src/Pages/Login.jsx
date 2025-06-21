@@ -52,7 +52,7 @@ function Login({setIsAuthenticated, setUserInfo}) {
                             name='email'
                             onChange={handleChange}
                             value={formData.email}
-                            className='flex-1 px-2 py-1 text-black outline-none'
+                            className='flex-1 px-2 py-1 text-black outline-none sm:w-auto w-[80px]'
                             required />
                     </div>
                     <div className="flex items-center gap-2">
@@ -61,7 +61,7 @@ function Login({setIsAuthenticated, setUserInfo}) {
                             name='password'
                             onChange={handleChange}
                             value={formData.password}
-                            className='flex-1 px-2 py-1 text-black outline-none'
+                            className='flex-1 px-2 py-1 text-black outline-none sm:w-auto w-[80px]'
 
                             required />
                     </div>
