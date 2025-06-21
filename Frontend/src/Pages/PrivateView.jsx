@@ -69,7 +69,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
         if (isAuthenticated && userInfo) {
             GetExpense();
         }
-    }, [isAuthenticated, userInfo]);
+    }, [isAuthenticated, userInfo, GetExpense]);
 
 
     useEffect(() => {
@@ -90,7 +90,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
         else{
             setIsData(true)
         }
-    },[selectedMonthYear])
+    },[selectedMonthYear, dataOfMonth.length])
 
 
     if (!isAuthenticated) {
