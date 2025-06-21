@@ -1,5 +1,4 @@
 import React from 'react'
-import dummyData from '../assets/data.json'
 
 function Table({expenseData}) {
     return (
