@@ -18,7 +18,7 @@ function Table({expenseData}) {
                 <tbody className='font-cinzelBlack text-center md:text-[15px] sm:text-[12px] text-[7px] '>
                     {expenseData.map((item, index) => (
                         <tr key={index}
-                            className='hover:bg-white hover:text-black'
+                            className='sm:hover:bg-white hover:text-black'
                         >
                             <td className='md:px-4 px-0 md:py-1 py:0 border border-gray-300 '>{index + 1}</td>
                             <td className='md:px-4 px-0 md:py-1 py:0 border border-gray-300 '>{item.expenseName}</td>

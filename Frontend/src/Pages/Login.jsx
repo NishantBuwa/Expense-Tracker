@@ -47,21 +47,21 @@ function Login({setIsAuthenticated, setUserInfo}) {
             <div className="p-8">
                 <form onSubmit={handleSubmit} className='grid grid-cols-1 sm:w-[400px] w-[280px] mx-auto gap-4'>
                     <div className="flex items-center gap-2">
-                        <label htmlFor='email' className='w-40'>Email: </label>
+                        <label htmlFor='email' className='sm:w-40 w-[80px] '>Email: </label>
                         <input type='text'
                             name='email'
                             onChange={handleChange}
                             value={formData.email}
-                            className='flex-1 px-2 py-1 text-black outline-none sm:w-auto w-[80px]'
+                            className='flex-1 px-2 py-1 text-black outline-none w-[150px] '
                             required />
                     </div>
                     <div className="flex items-center gap-2">
-                        <label htmlFor='password' className='w-40'>Password: </label>
+                        <label htmlFor='password' className='sm:w-40 w-[80px]'>Password: </label>
                         <input type='password'
                             name='password'
                             onChange={handleChange}
                             value={formData.password}
-                            className='flex-1 px-2 py-1 text-black outline-none sm:w-auto w-[80px]'
+                            className='flex-1 px-2 py-1 text-black outline-none w-[150px]'
 
                             required />
                     </div>

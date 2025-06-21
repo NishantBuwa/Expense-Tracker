@@ -8,7 +8,7 @@ function Card(props) {
                 {
                     props.data.map((item, index) => (
                         <div key={index}
-                            className={`h-[63px] sm:h-[110px] lg:h-[170px] rounded-xl shadow-xl sm:text-[12px] text-[7px]
+                            className={`h-[63px] sm:h-[110px] lg:h-[170px] rounded-xl shadow-xl lg:text-[18px] sm:text-[12px] text-[7px]
                                      {index === 0 ? 'bg-green-600' : index === 1 ? 'bg-red-700' : index ==2 ? 'bg-cyan-400' : 'bg-white'}
                         `}>
                             <h1 className='font-semibold p-[8px] sm:p-[15px]'>{item.title}</h1>

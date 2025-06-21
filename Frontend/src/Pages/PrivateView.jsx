@@ -14,7 +14,7 @@ const defaultMonthYear = `${today.getFullYear()}-${String(today.getMonth() + 1).
 function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInfo }) {
 
     const btnClass = 'bg-blue-800 md:py-1 md:px-3 sm:px-2 px-1 py-[2px] text-white rounded-sm sm:text-[15px] text-[8px]'
-    const headingClass = 'text-center xl:text-[35px] lg:text-[30px] md:text-[25px] sm:text-[20px] text-[16px] font-bold text-purple-800'
+    const headingClass = 'text-center xl:text-[35px] lg:text-[30px] md:text-[25px] sm:text-[20px] text-[16px] font-bold text-purple-800 font-custom2 underline'
 
     const [inputDisable, setInputDisable] = useState('');
     const [isData, setIsData] = useState(false)
@@ -76,7 +76,8 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
         if (expenseData.length > 0 && selectedMonthYear) {
             const cardStats = generateCardData(expenseData, selectedMonthYear);
             // console.log("Card Stats: ", cardStats)
-            setCardData(cardStats);
+            if(cardStats.length>0)
+                setCardData(cardStats); 
             // console.log("expense data: ", expenseData)
         }
     }, [expenseData, selectedMonthYear]);
@@ -187,6 +188,13 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                     }))
                     setInputDisable(true)
                 }
+                else{
+                    setInputDisable(false)
+                    setFormData({
+                        ...formData,
+                        income:''
+                    })
+                }
             }
             catch (e) {
                 console.error("Error occured on retrieving income info ", e);
@@ -259,8 +267,8 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                 <button className='bg-white md:py-1 md:px-3 sm:px-2 px-1 py-0 text-black rounded-2xl sm:text-[20px] text-[10px] mt-[10px]' onClick={() => ExpenseForm()}>Add New Expense ➡️</button>
             </div>
             <div className="expense-form mt-[20px] md:w-[600px] w-[250px] h-auto mx-auto hidden ">
-                <form action="POST" onSubmit={(e) => { handleFormSubmit(e) }} className='form gap-2 absolute bg-blue-700 md:w-[600px] w-[250px] p-4 shadow-2xl text-black md:text-[18px] text-[13px]'>
-                    <span className='absolute right-[15px] top-[10px]' 
+                <form action="POST" onSubmit={(e) => { handleFormSubmit(e) }} className='form gap-2 absolute bg-blue-700 md:w-[600px] w-[250px] p-4 shadow-2xl text-black md:text-[18px] text-[12px]'>
+                    <span className='absolute right-[15px] top-[10px] cursor-pointer ' 
                     onClick={()=>{document.getElementsByClassName('expense-form')[0].classList.add('hidden')
                     setFormData({
                         date: '',
@@ -280,7 +288,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                             min="2025-01-01"
                             value={formData.date}
                             onChange={handleOnChange}
-                            className='text-black mt-[3px]'
+                            className='text-black mt-[3px] outline-none px-2 w-[100%]'
                             required
                         />
                     </div>
@@ -291,7 +299,8 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                             name="income"
                             value={formData.income}
                             onChange={handleOnChange}
-                            className='text-black'
+                            placeholder='One-time income entry for this month'
+                            className='text-black outline-none px-2'
                             required
                             disabled={inputDisable}
                         />
@@ -303,14 +312,14 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                             name="expenseName"
                             value={formData.expenseName}
                             onChange={handleOnChange}
-                            className='text-black'
+                            className='text-black outline-none px-2'
                             required
                         />
                     </div>
 
                     <div className="Category flex flex-col md:mt-3 mt-1">
                         <label htmlFor="category">Expense Category: </label>
-                        <select className='text-black' name='category' value={formData.category} onChange={handleOnChange} required>
+                        <select className='text-black outline-none' name='category' value={formData.category} onChange={handleOnChange} required>
                             <option value="Food" >Food & Groceries</option>
                             <option value="Travel">Transport & Travel</option>
                             <option value="Health">Health & Medical</option>
@@ -325,14 +334,14 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                             name="amount"
                             value={formData.amount}
                             onChange={handleOnChange}
-                            className='text-black'
+                            className='text-black outline-none px-2'
                             required
                         />
                     </div>
 
                     <div className="payment-type flex flex-col md:mt-3 mt-1">
                         <label htmlFor="ptype">Payment Type: </label>
-                        <select className='text-black' name='ptype' value={formData.ptype} onChange={handleOnChange} required>
+                        <select className='text-black outline-none' name='ptype' value={formData.ptype} onChange={handleOnChange} required>
                             <option value="Card">Card</option>
                             <option value="UPI">UPI</option>
                             <option value="Cash">Cash</option>
@@ -343,13 +352,13 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
             </div>
             {isData === true ? (
                 <>
-                    <h1 className={`${headingClass} md:mt-8 mt-5'`} >EXPENSE HIGHLIGHTS</h1>
+                    <h1 className={`${headingClass} md:mt-8 mt-5`} >EXPENSE HIGHLIGHTS</h1>
                     <div className="lg:max-w-[1000px] mx-auto sm:max-w-[600px] w-[320px] min-[401px]:w-[85%] ">
                         <input
                         type="month"
                         value={selectedMonthYear}
                         onChange={(e) => setSelectedMonthYear(e.target.value)}
-                        className="text-white bg-purple-600 sm:px-3 px-1 sm:mt-0 mt-3 outline-none float-right m-0 lg:w-[220px] sm:w-[110px] w-[90px] lg:text-[20px] sm:text-[13px] text-[10px]"
+                        className="text-white bg-purple-600 sm:px-3 px-[2px] sm:mt-0 mt-3 outline-none float-right m-0 lg:w-[220px] sm:w-[110px] w-[90px] lg:text-[20px] sm:text-[13px] text-[8px]"
                     />
                     </div>
                     <Card
@@ -364,8 +373,17 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                     <Barchart expenseData={dataOfMonth} />
                 </>
             ) : 
+            
             (<>
                 <p className={`${headingClass}`}>Data not available</p>
+                <div className="lg:max-w-[1000px] mx-auto sm:max-w-[600px] w-[320px] min-[401px]:w-[85%] ">
+                        <input
+                        type="month"
+                        value={selectedMonthYear}
+                        onChange={(e) => setSelectedMonthYear(e.target.value)}
+                        className="text-white bg-purple-600 sm:px-3 px-[2px] sm:mt-0 mt-3 outline-none float-right m-0 lg:w-[220px] sm:w-[110px] w-[90px] lg:text-[20px] sm:text-[13px] text-[8px]"
+                    />
+                    </div>
             </>)}
         </div>
     )

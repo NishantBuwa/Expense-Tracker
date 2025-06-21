@@ -49,62 +49,62 @@ function Signup({setUserInfo, setIsAuthenticated}) {
             <div className="p-8">
                 <form onSubmit={handleSubmit} className='grid grid-cols-1 sm:w-[400px] w-[280px]  mx-auto gap-4'>
                     <div className="flex items-center gap-2">
-                        <label htmlFor='name' className='w-40'>Name: </label>
+                        <label htmlFor='name' className='sm:w-40 w-[80px] '>Name: </label>
                         <input type='text'
                             name='name'
                             onChange={handleChange}
                             value={formData.name}
-                            className='flex-1 px-2 py-1 text-black outline-none'
+                            className='flex-1 px-2 py-1 text-black outline-none w-[150px]'
 
                             required />
                     </div>
-                    <div className="flex items-center gap-2">
-                        <label htmlFor='email' className='w-40'>Email: </label>
+                    <div className="flex items-center gap-2 sm:mt-0 mt-2">
+                        <label htmlFor='email' className='sm:w-40 w-[80px] '>Email: </label>
                         <input type='text'
                             name='email'
                             onChange={handleChange}
                             value={formData.email}
-                            className='flex-1 px-2 py-1 text-black outline-none'
+                            className='flex-1 px-2 py-1 text-black outline-none w-[150px]'
 
                             required />
                     </div>
                     <div className="flex items-center gap-2">
-                        <label htmlFor='username' className='w-40'>User-Name: </label>
+                        <label htmlFor='username' className='sm:w-40 w-[80px] '>User-Name: </label>
                         <input type='text'
                             name='username'
                             onChange={handleChange}
                             value={formData.username}
-                            className='flex-1 px-2 py-1 text-black outline-none'
+                            className='flex-1 px-2 py-1 text-black outline-none w-[150px]'
 
                             required />
                     </div>
                     <div className="flex items-center gap-2">
-                        <label htmlFor='age' className='w-40'>Age: </label>
+                        <label htmlFor='age' className='sm:w-40 w-[80px] '>Age: </label>
                         <input type='number'
                             name='age'
                             onChange={handleChange}
                             value={formData.age}
-                            className='flex-1 px-2 py-1 text-black outline-none'
+                            className='flex-1 px-2 py-1 text-black outline-none w-[150px]'
 
                             required />
                     </div>
-                    <div className="flex items-center gap-2">
-                        <label htmlFor='password' className='w-40'>Password: </label>
+                    <div className="flex items-center gap-2 sm:mt-0 mt-2">
+                        <label htmlFor='password' className='sm:w-40 w-[80px] '>Password: </label>
                         <input type='password'
                             name='password'
                             onChange={handleChange}
                             value={formData.password}
-                            className='flex-1 px-2 py-1 text-black outline-none'
+                            className='flex-1 px-2 py-1 text-black outline-none w-[150px]'
 
                             required />
                     </div>
                     <div className="flex items-center gap-2">
-                        <label htmlFor='c_password' className='w-40'>Confirm Password: </label>
+                        <label htmlFor='c_password' className='sm:w-40 w-[80px] '>Confirm Password: </label>
                         <input type='password'
                             name='c_password'
                             onChange={handleChange}
                             value={formData.c_password}
-                            className='flex-1 px-2 py-1 text-black outline-none '
+                            className='flex-1 px-2 py-1 text-black outline-none w-[150px]'
 
                             required />
                     </div>
