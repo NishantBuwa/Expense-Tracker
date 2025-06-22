@@ -63,7 +63,7 @@ function Login({setIsAuthenticated, setUserInfo}) {
                             onChange={handleChange}
                             value={formData.password}
                             placeholder="Demo -> Test123"
-                            className='flex-1 <px-1></px-1> py-1 text-black outline-none w-[150px]'
+                            className='flex-1 px-1 py-1 text-black outline-none w-[150px]'
 
                             required />
                     </div>

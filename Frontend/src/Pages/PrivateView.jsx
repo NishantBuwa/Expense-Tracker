@@ -20,7 +20,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
     const [isData, setIsData] = useState(false)
     const [expenseData, setExpenseData] = useState([])
     const [cardData, setCardData] = useState([])
-    const [dataOfMonth,setDataOfMonth] = useState([])
+    const [dataOfMonth, setDataOfMonth] = useState([])
     const [formData, setFormData] = useState({
         date: '',
         income: '',
@@ -39,14 +39,14 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify( {email: userInfo.email})
+                body: JSON.stringify({ email: userInfo.email })
             });
             const data = await res.json();
             if (data) {
                 // console.log("Data Recieved: ", data)
                 setExpenseData(data)
             }
-            if (data.length>0){
+            if (data.length > 0) {
                 setIsData(true);
             }
             const content = document.getElementsByClassName('content')[0];
@@ -62,7 +62,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
         } catch (err) {
             console.error("Error fetching user data", err);
         }
-    },[userInfo.email])
+    }, [userInfo.email])
 
 
     useEffect(() => {
@@ -76,30 +76,33 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
         if (expenseData.length > 0 && selectedMonthYear) {
             const cardStats = generateCardData(expenseData, selectedMonthYear);
             // console.log("Card Stats: ", cardStats)
-            if(cardStats.length>0)
-                setCardData(cardStats); 
+            if (cardStats.length > 0)
+                setCardData(cardStats);
             // console.log("expense data: ", expenseData)
         }
     }, [expenseData, selectedMonthYear]);
 
-    useEffect(()=>{
-        if(dataOfMonth.length===0){
+    useEffect(() => {
+        if (dataOfMonth.length === 0) {
             // console.log(dataOfMonth)
             // console.log("Data not availeble")
             setIsData(false)
         }
-        else{
+        else {
             setIsData(true)
         }
-    },[selectedMonthYear, dataOfMonth.length])
+    }, [selectedMonthYear, dataOfMonth.length])
 
+    // useEffect(() => {
+    //     document.getElementsByClassName('content').
+    //  })
 
     if (!isAuthenticated) {
         return <Navigate to="/" />
     }
 
 
-    const handleLogout=()=>{
+    const handleLogout = () => {
         setUserInfo({});
         setIsAuthenticated(false)
     }
@@ -188,7 +191,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                     }))
                     setInputDisable(true)
                 }
-                else{
+                else {
                     setInputDisable(false)
                     // setFormData({
                     //     ...formData,
@@ -262,24 +265,25 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                     <button className={`addButton ${btnClass} bg-red-600`} onClick={handleLogout}>Logout</button>
                 </div>
             </nav>
-            <div className="content text-center hidden">
+            {/* <div className="content text-center hidden">
                 <h1 className='xl:text-[35px] lg:text-[30px] sm:text-[20px] text-[13px] font-bold text-purple-800' >No Expenses To Show</h1>
                 <button className='bg-white md:py-1 md:px-3 sm:px-2 px-1 py-0 text-black rounded-2xl sm:text-[20px] text-[10px] mt-[10px]' onClick={() => ExpenseForm()}>Add New Expense ➡️</button>
-            </div>
+            </div> */}
             <div className="expense-form mt-[20px] md:w-[600px] w-[250px] h-auto mx-auto hidden ">
-                <form action="POST" onSubmit={(e) => { handleFormSubmit(e) }} className='form gap-2 absolute bg-blue-700 md:w-[600px] w-[250px] p-4 shadow-2xl text-black md:text-[18px] text-[12px]'>
-                    <span className='absolute right-[15px] top-[10px] cursor-pointer ' 
-                    onClick={()=>{document.getElementsByClassName('expense-form')[0].classList.add('hidden')
-                    setFormData({
-                        date: '',
-                        income: '',
-                        expenseName: '',
-                        category: 'Food',
-                        amount: '',
-                        ptype: 'Card',
-                        email: ''
-                        })
-                    }}
+                <form action="POST" onSubmit={(e) => { handleFormSubmit(e) }} className='form gap-2 absolute bg-blue-700 md:w-[600px] w-[250px] p-4 shadow-2xl text-black md:text-[18px] text-[12px] mb-[10px] border-2 border-red-500'>
+                    <span className='absolute right-[15px] top-[10px] cursor-pointer '
+                        onClick={() => {
+                            document.getElementsByClassName('expense-form')[0].classList.add('hidden')
+                            setFormData({
+                                date: '',
+                                income: '',
+                                expenseName: '',
+                                category: 'Food',
+                                amount: '',
+                                ptype: 'Card',
+                                email: ''
+                            })
+                        }}
                     >❌</span>
                     <div className="Date flex flex-col mt-5">
                         <label htmlFor="date">Expense Date: </label>
@@ -355,12 +359,12 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                     <h1 className={`${headingClass} md:mt-8 mt-5`} >EXPENSE HIGHLIGHTS</h1>
                     <div className="lg:max-w-[1000px] mx-auto sm:max-w-[600px] w-[320px] min-[401px]:w-[85%] ">
                         <input
-                        type="month"
-                        value={selectedMonthYear}
-                        min="2025-01"
-                        onChange={(e) => setSelectedMonthYear(e.target.value)}
-                        className="text-white bg-purple-600 sm:px-3 px-[2px] sm:mt-0 mt-3 outline-none float-right m-0 lg:w-[220px] sm:w-[110px] w-[90px] lg:text-[20px] sm:text-[13px] text-[8px]"
-                    />
+                            type="month"
+                            value={selectedMonthYear}
+                            min="2025-01"
+                            onChange={(e) => setSelectedMonthYear(e.target.value)}
+                            className="text-white bg-purple-600 sm:px-3 px-[2px] sm:mt-0 mt-3 outline-none float-right m-0 lg:w-[220px] sm:w-[110px] w-[90px] lg:text-[20px] sm:text-[13px] text-[8px]"
+                        />
                     </div>
                     <Card
                         data={cardData}
@@ -373,19 +377,24 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                     <div className="mt-16"></div>
                     <Barchart expenseData={dataOfMonth} />
                 </>
-            ) : 
-            
-            (<>
-                <p className={`${headingClass}`}>Data not available</p>
-                <div className="lg:max-w-[1000px] mx-auto sm:max-w-[600px] w-[320px] min-[401px]:w-[85%] ">
-                        <input
-                        type="month"
-                        value={selectedMonthYear}
-                        onChange={(e) => setSelectedMonthYear(e.target.value)}
-                        className="text-white bg-purple-600 sm:px-3 px-[2px] sm:mt-0 mt-3 outline-none float-right m-0 lg:w-[220px] sm:w-[110px] w-[90px] lg:text-[20px] sm:text-[13px] text-[8px]"
-                    />
-                    </div>
-            </>)}
+            ) :
+
+                (
+                    <>
+                        {/* <p className={`${headingClass}`}>Data not available</p> */}
+                        <div className="content text-center">
+                            <h1 className='xl:text-[35px] lg:text-[30px] sm:text-[20px] text-[13px] font-bold text-purple-800' >No Expenses To Show</h1>
+                            <button className='bg-white md:py-1 md:px-3 sm:px-2 px-1 py-0 text-black rounded-2xl sm:text-[20px] text-[10px] mt-[10px]' onClick={() => ExpenseForm()}>Add New Expense ➡️</button>
+                        </div>
+                        <div className="lg:max-w-[1000px] mx-auto sm:max-w-[600px] w-[320px] min-[401px]:w-[85%] ">
+                            <input
+                                type="month"
+                                value={selectedMonthYear}
+                                onChange={(e) => setSelectedMonthYear(e.target.value)}
+                                className="text-white bg-purple-600 sm:px-3 px-[2px] sm:mt-0 mt-3 outline-none float-right m-0 lg:w-[220px] sm:w-[110px] w-[90px] lg:text-[20px] sm:text-[13px] text-[8px]"
+                            />
+                        </div>
+                    </>)}
         </div>
     )
 }
