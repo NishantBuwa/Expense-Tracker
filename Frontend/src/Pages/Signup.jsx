@@ -32,6 +32,9 @@ function Signup({setUserInfo, setIsAuthenticated}) {
                 const data = await res.json();
                 if(data.message === "User Exists"){
                     alert('Email id already exists')
+                    formData({
+                        name: '', email: '', username: '', age: '', password: '', c_password: '' 
+                    })
                     return ;
                 }
                 if(data.success) {
