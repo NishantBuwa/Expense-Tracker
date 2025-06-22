@@ -46,26 +46,3 @@ I’m thrilled to share that I’ve successfully built my first full-stack appli
 👉 [Check it out live](https://mern-expense-tracker-project.netlify.app/)
 
 ---
-
-## 📁 Folder Structure
-
-Expense-Tacker/
-├── backend/
-│   ├── models/
-│   ├── routes/
-│   ├── .env
-│   ├── package.json
-│   └── index.js         <-- main entry point instead of server.js
-│
-├── frontend/
-│   ├── public/
-│   └── src/
-│       ├── assets/       <-- ✅ NEW: for images, logos, dummy data etc.
-│       ├── components/   <-- Reusable UI components
-│       ├── pages/        <-- App pages (Signup, Login, etc.)
-│       ├── App.js
-│       ├── index.js
-│       ├── tailwind.config.js
-│       └── postcss.config.js
-│
-├── README.md
