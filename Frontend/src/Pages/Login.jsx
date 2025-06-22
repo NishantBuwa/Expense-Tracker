@@ -9,7 +9,7 @@ function Login({setIsAuthenticated, setUserInfo}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await apiCallForPassword(formData.email, formData.password);
-        setFormData({
+        setFormData({   
             email: '',
             password: ''
         })
@@ -37,7 +37,7 @@ function Login({setIsAuthenticated, setUserInfo}) {
         const data = await res.json()
         if(data.success){
             setIsAuthenticated(true)
-            setUserInfo({email:formData.email,username:data.username})
+            setUserInfo({email:formData.email.toLowerCase(),username:data.username})
             // console.log(`User has logged in with ${formData.email} ${data.username}`);
             navigate('/privateview')
         }

@@ -25,12 +25,17 @@ function Signup({setUserInfo, setIsAuthenticated}) {
                     },
                     body:JSON.stringify(dataToSend)
                 })
-                if(res.status === 409){
-                    alert('User Exits with this email')
-                }
+                // if(res.status === 409){
+                //     alert('User Exits with this email')
+                //     return;
+                // }
                 const data = await res.json();
+                if(data.message === "User Exists"){
+                    alert('Email id already exists')
+                    return ;
+                }
                 if(data.success) {
-                    setUserInfo({email:formData.email,username:formData.username})
+                    setUserInfo({email:formData.email.toLowerCase(),username:formData.username})
                     setIsAuthenticated(true)
                     navigate('/privateview')
                     // console.log("User signed up successfully")

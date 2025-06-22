@@ -270,7 +270,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                 <button className='bg-white md:py-1 md:px-3 sm:px-2 px-1 py-0 text-black rounded-2xl sm:text-[20px] text-[10px] mt-[10px]' onClick={() => ExpenseForm()}>Add New Expense ➡️</button>
             </div> */}
             <div className="expense-form mt-[20px] md:w-[600px] w-[250px] h-auto mx-auto hidden ">
-                <form action="POST" onSubmit={(e) => { handleFormSubmit(e) }} className='form gap-2 absolute bg-blue-700 md:w-[600px] w-[250px] p-4 shadow-2xl text-black md:text-[18px] text-[12px] mb-[10px] border-2 border-red-500'>
+                <form action="POST" onSubmit={(e) => { handleFormSubmit(e) }} className='form gap-2 absolute bg-blue-700 md:w-[600px] w-[250px] p-4 shadow-2xl text-black md:text-[18px] text-[12px] mb-[10px]'>
                     <span className='absolute right-[15px] top-[10px] cursor-pointer '
                         onClick={() => {
                             document.getElementsByClassName('expense-form')[0].classList.add('hidden')
