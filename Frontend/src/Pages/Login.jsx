@@ -23,12 +23,16 @@ function Login({setIsAuthenticated, setUserInfo}) {
     }
 
     const apiCallForPassword = async () => {
+        const dataToSend = {
+            ...formData,
+            email:formData.email.toLowerCase()
+        }
         const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/loginuser`,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify(formData)
+            body:JSON.stringify(dataToSend)
         })
         const data = await res.json()
         if(data.success){

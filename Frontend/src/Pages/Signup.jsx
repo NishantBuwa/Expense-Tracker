@@ -14,13 +14,20 @@ function Signup({setUserInfo, setIsAuthenticated}) {
         }
         else {
             try{
+                const dataToSend = {
+                    ...formData,
+                    email:formData.email.toLowerCase()
+                }
                 const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/createuser`, {
                     method:'POST',
                     headers: {
                         "Content-Type":"application/json"
                     },
-                    body:JSON.stringify(formData)
+                    body:JSON.stringify(dataToSend)
                 })
+                if(res.status === 409){
+                    alert('User Exits with this email')
+                }
                 const data = await res.json();
                 if(data.success) {
                     setUserInfo({email:formData.email,username:formData.username})

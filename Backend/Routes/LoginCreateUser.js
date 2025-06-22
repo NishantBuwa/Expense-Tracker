@@ -7,6 +7,11 @@ const bcrypt = require('bcryptjs')
 
 router.post("/createuser", async (req, res) => {
     try {
+        let email = req.body.email
+        let userData = await User.findOne({ email })
+        if(userData !== null ){
+            return res.status(409).json({message:"User Exists"})
+        }
         const salt = await bcrypt.genSalt(10)
         let securePassword = await bcrypt.hash(req.body.password, salt)
         await User.create({
