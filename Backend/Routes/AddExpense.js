@@ -18,7 +18,7 @@ router.post('/AddExpense', async (req, res) => {
     }
     catch (error) {
         // console.log("Error in Adding Expenses")
-        return res.status(500).json({ message: "Server error" })
+        return res.status(500).json({ message:error })
     }
 })
 

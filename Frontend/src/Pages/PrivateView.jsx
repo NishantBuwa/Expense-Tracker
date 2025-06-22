@@ -190,10 +190,10 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                 }
                 else{
                     setInputDisable(false)
-                    setFormData({
-                        ...formData,
-                        income:''
-                    })
+                    // setFormData({
+                    //     ...formData,
+                    //     // income:''
+                    // })
                 }
             }
             catch (e) {
@@ -357,6 +357,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                         <input
                         type="month"
                         value={selectedMonthYear}
+                        min="2025-01"
                         onChange={(e) => setSelectedMonthYear(e.target.value)}
                         className="text-white bg-purple-600 sm:px-3 px-[2px] sm:mt-0 mt-3 outline-none float-right m-0 lg:w-[220px] sm:w-[110px] w-[90px] lg:text-[20px] sm:text-[13px] text-[8px]"
                     />
