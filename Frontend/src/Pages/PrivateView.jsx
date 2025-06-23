@@ -28,7 +28,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
         category: 'Food',
         amount: '',
         ptype: 'Card',
-        email: ''
+        // email: ''
     });
     const [selectedMonthYear, setSelectedMonthYear] = useState(defaultMonthYear)
 
@@ -245,7 +245,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
             category: 'Food',
             amount: '',
             ptype: 'Card',
-            email: ''
+            // email: ''
         })
         // console.log(userInfo)
     }
@@ -281,7 +281,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                                 category: 'Food',
                                 amount: '',
                                 ptype: 'Card',
-                                email: ''
+                                // email: ''
                             })
                         }}
                     >❌</span>
