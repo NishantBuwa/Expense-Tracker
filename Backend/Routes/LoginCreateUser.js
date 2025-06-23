@@ -32,11 +32,9 @@ router.post("/createuser", async (req, res) => {
 // LOGIN USER
 
 router.post("/loginuser", async (req, res) => {
-    console.log("Login route is hit")
-    console.log("Request Body: ", req.body)
+    // console.log("Login route is hit")
+    // console.log("Request Body: ", req.body)
     let email = req.body.email
-
-
 
     try {
         const body = req.body;
