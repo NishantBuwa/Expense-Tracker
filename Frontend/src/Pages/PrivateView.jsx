@@ -49,7 +49,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
             if (data.length > 0) {
                 setIsData(true);
             }
-            const content = document.getElementsByClassName('content')[0];
+            // const content = document.getElementsByClassName('content')[0];
             const addButton = document.getElementsByClassName('addButton')[0];
 
             if (!data || data.length === 0) {
@@ -208,7 +208,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         const expenseForm = document.getElementsByClassName('expense-form')[0];
-        const content = document.getElementsByClassName('content')[0];
+        // const content = document.getElementsByClassName('content')[0];
         const addButton = document.getElementsByClassName('addButton')[0];
         expenseForm.classList.add("hidden");
         // content.classList.add("hidden");
