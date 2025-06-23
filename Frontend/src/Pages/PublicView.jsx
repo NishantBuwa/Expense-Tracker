@@ -17,7 +17,7 @@ function publicHome() {
                             <button className='bg-blue-800 md:py-1 md:px-3 sm:px-2 px-1 py-0 text-white rounded-sm sm:text-[15px] text-[10px]'>Signup</button>
                         </Link>
                         <Link to='/login'>
-                            <button className='bg-blue-800 md:py-1 md:px-3 sm:px-2 px-1 py-0 text-white rounded-sm sm:text-[15px] text-[10px]' onClick={() => { console.log("clicked") }}>Login</button>
+                            <button className='bg-blue-800 md:py-1 md:px-3 sm:px-2 px-1 py-0 text-white rounded-sm sm:text-[15px] text-[10px]'>Login</button>
                         </Link>
                     </div>
                 </nav>

@@ -53,10 +53,10 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
             const addButton = document.getElementsByClassName('addButton')[0];
 
             if (!data || data.length === 0) {
-                content.classList.remove('hidden');
+                // content.classList.remove('hidden');
                 addButton.classList.add('hidden');
             } else {
-                content.classList.add('hidden');
+                // content.classList.add('hidden');
                 addButton.classList.remove('hidden');
             }
         } catch (err) {
@@ -206,13 +206,13 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
     }
 
     const handleFormSubmit = async (e) => {
+        e.preventDefault();
         const expenseForm = document.getElementsByClassName('expense-form')[0];
         const content = document.getElementsByClassName('content')[0];
         const addButton = document.getElementsByClassName('addButton')[0];
         expenseForm.classList.add("hidden");
-        content.classList.add("hidden");
+        // content.classList.add("hidden");
         addButton.classList.remove('hidden');
-        e.preventDefault();
         // console.log(formData);
 
         const dataToSend = {
@@ -270,7 +270,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                 <button className='bg-white md:py-1 md:px-3 sm:px-2 px-1 py-0 text-black rounded-2xl sm:text-[20px] text-[10px] mt-[10px]' onClick={() => ExpenseForm()}>Add New Expense ➡️</button>
             </div> */}
             <div className="expense-form mt-[20px] md:w-[600px] w-[250px] h-auto mx-auto hidden ">
-                <form action="POST" onSubmit={(e) => { handleFormSubmit(e) }} className='form gap-2 absolute bg-blue-700 md:w-[600px] w-[250px] p-4 shadow-2xl text-black md:text-[18px] text-[12px] mb-[10px]'>
+                <form onSubmit={(e) => { handleFormSubmit(e) }} className='form gap-2 absolute bg-blue-700 md:w-[600px] w-[250px] p-4 shadow-2xl text-black md:text-[18px] text-[12px] mb-[10px]'>
                     <span className='absolute right-[15px] top-[10px] cursor-pointer '
                         onClick={() => {
                             document.getElementsByClassName('expense-form')[0].classList.add('hidden')
@@ -378,7 +378,6 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                     <Barchart expenseData={dataOfMonth} />
                 </>
             ) :
-
                 (
                     <>
                         {/* <p className={`${headingClass}`}>Data not available</p> */}
