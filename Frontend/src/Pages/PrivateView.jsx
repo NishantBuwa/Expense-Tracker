@@ -323,7 +323,7 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
 
                     <div className="Category flex flex-col md:mt-3 mt-1">
                         <label htmlFor="category">Expense Category: </label>
-                        <select className='text-black outline-none' name='category' value={formData.category} onChange={handleOnChange} required>
+                        <select className='text-black outline-none px-1' name='category' value={formData.category} onChange={handleOnChange} required>
                             <option value="Food" >Food & Groceries</option>
                             <option value="Travel">Transport & Travel</option>
                             <option value="Health">Health & Medical</option>
@@ -338,14 +338,14 @@ function PrivateView({ isAuthenticated, userInfo, setIsAuthenticated, setUserInf
                             name="amount"
                             value={formData.amount}
                             onChange={handleOnChange}
-                            className='text-black outline-none px-2'
+                            className='text-black outline-none px-1.5'
                             required
                         />
                     </div>
 
                     <div className="payment-type flex flex-col md:mt-3 mt-1">
                         <label htmlFor="ptype">Payment Type: </label>
-                        <select className='text-black outline-none' name='ptype' value={formData.ptype} onChange={handleOnChange} required>
+                        <select className='text-black outline-none px-1' name='ptype' value={formData.ptype} onChange={handleOnChange} required>
                             <option value="Card">Card</option>
                             <option value="UPI">UPI</option>
                             <option value="Cash">Cash</option>
